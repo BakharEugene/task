@@ -127,6 +127,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Information\UnitOfWork.cs" />
     <Compile Include="Models\Providers\CustomProvider.cs" />
+    <Compile Include="Models\Users\LoginModel.cs" />
     <Compile Include="Models\Users\RegisterModel.cs" />
     <Compile Include="Models\Users\Role.cs" />
     <Compile Include="Models\Users\User.cs" />
