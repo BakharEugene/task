@@ -32,13 +32,22 @@ namespace task.Controllers
                 }
                 else
                 {
-                    user = new User();
-                    user.Email = "";
-                    user.Password = "";
-                    user.Comments = new List<Comment>();
-                    unit.Users.Create(user);
-
-                    unit.Save();
+                    if ((User)(Session["CurrentUnauthorizedUser"]) == null)
+                    {
+                        user = new User();
+                        user.Email = "";
+                        user.Password = "";
+                        user.Comments = new List<Comment>();
+                        user.RoleId = 3;
+                        unit.Users.Create(user);
+                        Session["CurrentUnauthorizedUser"] = user;
+                        unit.Save();
+                    }
+                    else
+                    {
+                        user = (User)(Session["CurrentUnauthorizedUser"]);
+                        string kek = "";
+                    }
 
                 }
                 user.Comments.Add(post);
@@ -46,12 +55,12 @@ namespace task.Controllers
                 post.UserId = user.Id;
                 post.time = DateTime.Now;
                 user.Comments.Add(post);
-                
+
                 unit.Comments.Create(post);
                 unit.Save();
 
 
-              
+
             }
             return RedirectToAction("Index");
         }
