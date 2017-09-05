@@ -17,7 +17,7 @@ namespace task.Controllers
         }
 
         [HttpPost]
-        public JsonResult AddComment(string comment)
+        public ActionResult AddComment(string comment)
         {
             using (UnitOfWork unit = new UnitOfWork())
             {
