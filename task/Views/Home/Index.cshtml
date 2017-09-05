@@ -1,9 +1,28 @@
-﻿@{
-    ViewBag.Title = "Home Page";
+﻿
+@{
+    ViewBag.Title = "Index";
 }
+<script>
+    $('#commentForm').submit(function (event) {
+        $.ajax({
+            url: "/Monuments/AddComment",
+            
+            type: "POST",
+            data: {
+                comment: $('#Comment').val()
+            }
+        })
+    })
+</script>
 
+<form method="post" id="commentForm" action="@Url.Action("AddComment")">
 
-<body>
+    <div class="d-block mx-auto w-25">
+        <h4>Ваш комментарий</h4>
 
-
-</body>
+        @Html.TextArea("Comment", null, new { @class = "form-control" })
+    </div>
+    <div class="d-block mx-auto w-25 mt-2">
+        <input type="submit" value="Отправить комментарий" class="btn btn-default" />
+    </div>
+</form>

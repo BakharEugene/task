@@ -1,5 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using task.DAL.Models.Comments;
 
 namespace task.DAL.Models.Users
 {
@@ -13,5 +15,6 @@ namespace task.DAL.Models.Users
         [ForeignKey("Role")]
         public int? RoleId { get; set; }
         public virtual Role Role { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

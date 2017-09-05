@@ -9,7 +9,17 @@ namespace task.DAL.Models.Information
         TaskContext db = new TaskContext();
         private RoleRepository roleRepository;
         private UserRepository userRepository;
+        private CommentRepository commentRepository;
+        public CommentRepository Comments
+        {
+            get
+            {
+                if (commentRepository == null)
+                    commentRepository= new CommentRepository(db);
+                return commentRepository;
+            }
 
+        }
 
 
         public RoleRepository Roles
