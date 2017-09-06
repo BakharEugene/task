@@ -224,6 +224,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Registration\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Profile.cshtml" />
+    <Content Include="Views\Account\AllComments.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

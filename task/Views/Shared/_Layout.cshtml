@@ -36,6 +36,16 @@
             }
             else
             {
+                if (User.IsInRole("Admin"))
+                {
+
+                    <li class="nav-item">
+                        @Html.ActionLink("Все пользователи", "AllComments", "Account", new { area = "" }, new { @class = "nav-link" })
+                    </li>
+                }
+                <li class="nav-item">
+                    @Html.ActionLink("Профиль", "Profile", "Account", new { area = "" }, new { @class = "nav-link" })
+                </li>
                 <li class="nav-item">
                     @Html.ActionLink("Выйти", "Logoff", "Account", new { area = "" }, new { @class = "nav-link" })
                 </li>

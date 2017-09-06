@@ -1,0 +1,48 @@
+﻿@model task.DAL.Models.Users.User
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Ваш профиль</h2>
+<hr />
+
+<div class="w-50 d-block mx-auto">
+
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.ActionLink("Id", "Profile", new { sortOrder = ViewBag.NameSortParm })
+                </th>
+                <th>Текст</th>
+                <th>
+                    @Html.ActionLink("Дата", "Profile", new { sortOrder = ViewBag.DateSortParm })
+                <th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var comment in Model.Comments)
+            {
+                <tr>
+                    <th>@comment.Id</th>
+                    <td>@comment.Text</td>
+                    <td>@comment.time</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+</div>
+<p>
+    @Html.ActionLink("Вернуться на главную", "Index","Home")
+</p>
